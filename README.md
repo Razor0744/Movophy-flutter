@@ -1,6 +1,4 @@
-# test_for_max
-
-flutter project for max
+# Movophy flutter
 
 ## Getting Started
 
