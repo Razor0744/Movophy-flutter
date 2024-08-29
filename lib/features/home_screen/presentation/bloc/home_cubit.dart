@@ -8,7 +8,7 @@ class HomeCubit extends Cubit<HomeUiState> {
   GetHomeDataUseCase getHomeDataUseCase;
 
   void getPicturesUrl() async {
-    var homeData = await getHomeDataUseCase.execute();
+    final homeData = await getHomeDataUseCase.execute();
 
     emit(Loaded(homeData));
   }

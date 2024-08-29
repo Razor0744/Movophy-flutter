@@ -10,9 +10,9 @@ class AnilibriaRepositoryImpl implements AnilibriaRepository {
 
   @override
   Future<List<AnimeSeries>> getAnimeSeriesList() async {
-    var response = await anilibriaService.getSchedule();
+    final response = await anilibriaService.getSchedule();
 
-    var list = response
+    final list = response
         .map((it) => AnimeSeries(
             id: it.list?[0].id ?? 0,
             pictureUrl: 'https://www.anilibria.tv${it.list?[0].posters?.small?.url}'))

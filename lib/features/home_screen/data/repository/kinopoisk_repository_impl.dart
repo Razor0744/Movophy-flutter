@@ -9,9 +9,9 @@ class KinopoiskRepositoryImpl implements KinopoiskRepository {
 
   @override
   Future<List<KinopoiskSeries>> getKinopoiskSeriesList(String category) async {
-    var response = await kinopoiskService.getList(category: category);
+    final response = await kinopoiskService.getList(category: category);
 
-    var list = response.docs
+    final list = response.docs
             ?.where((it) =>
                 it.id != null &&
                 it.poster != null &&
