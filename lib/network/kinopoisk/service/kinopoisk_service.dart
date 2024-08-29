@@ -1,9 +1,9 @@
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart' hide Headers;
-import 'package:test_for_max/network/kinopoisk/models/KinopoiskList.dart';
+import 'package:test_for_max/network/kinopoisk/models/kinopoisk_list.dart';
 
-part 'KinopoiskService.g.dart';
+part 'kinopoisk_service.g.dart';
 
 @RestApi(baseUrl: "https://api.kinopoisk.dev/v1.4/")
 abstract class KinopoiskService {

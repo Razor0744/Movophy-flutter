@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'AnilibriaPostersSmall.g.dart';
+part 'anilibria_posters_small.g.dart';
 
 @JsonSerializable()
 class AnilibriaPostersSmall {

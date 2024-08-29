@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_for_max/DISetup.dart';
-import 'package:test_for_max/features/home_screen/presentation/bloc/HomeBloc.dart';
-import 'package:test_for_max/features/home_screen/presentation/ui/HomeScreen.dart';
+import 'package:test_for_max/di_setup.dart';
+import 'package:test_for_max/features/home_screen/presentation/bloc/home_cubit.dart';
+import 'package:test_for_max/features/home_screen/presentation/ui/home_screen.dart';
 
 void main() {
-  DISetup();
+  diSetup();
   runApp(const MyApp());
 }
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeBloc(getIt()),
+      create: (context) => HomeCubit(getIt()),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

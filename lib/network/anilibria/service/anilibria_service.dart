@@ -1,9 +1,9 @@
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-import 'package:test_for_max/network/anilibria/models/AnilibriaSchedule.dart';
+import 'package:test_for_max/network/anilibria/models/anilibria_schedule.dart';
 import 'package:dio/dio.dart';
 
-part 'AnilibriaService.g.dart';
+part 'anilibria_service.g.dart';
 
 @RestApi(baseUrl: "https://api.anilibria.tv/v3/")
 abstract class AnilibriaService{

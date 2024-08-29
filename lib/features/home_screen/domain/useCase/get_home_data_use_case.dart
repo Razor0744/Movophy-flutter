@@ -1,6 +1,6 @@
-import 'package:test_for_max/features/home_screen/domain/models/HomeState.dart';
-import 'package:test_for_max/features/home_screen/domain/repository/AnilibriaRepository.dart';
-import 'package:test_for_max/features/home_screen/domain/repository/KinopoiskRepository.dart';
+import 'package:test_for_max/features/home_screen/domain/models/home_state.dart';
+import 'package:test_for_max/features/home_screen/domain/repository/anilibria_repository.dart';
+import 'package:test_for_max/features/home_screen/domain/repository/kinopoisk_repository.dart';
 
 const String HORRORS = 'Ужасы';
 const String COMEDY = 'Комедия';

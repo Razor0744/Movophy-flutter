@@ -1,6 +1,6 @@
-import 'package:test_for_max/features/home_screen/domain/models/KinopoiskSeries.dart';
-import 'package:test_for_max/features/home_screen/domain/repository/KinopoiskRepository.dart';
-import 'package:test_for_max/network/kinopoisk/service/KinopoiskService.dart';
+import 'package:test_for_max/features/home_screen/domain/models/kinopoisk_series.dart';
+import 'package:test_for_max/features/home_screen/domain/repository/kinopoisk_repository.dart';
+import 'package:test_for_max/network/kinopoisk/service/kinopoisk_service.dart';
 
 class KinopoiskRepositoryImpl implements KinopoiskRepository {
   KinopoiskService kinopoiskService;

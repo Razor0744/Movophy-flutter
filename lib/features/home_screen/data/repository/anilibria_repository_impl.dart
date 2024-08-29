@@ -1,7 +1,7 @@
-import 'package:test_for_max/features/home_screen/domain/models/AnimeSeries.dart';
-import 'package:test_for_max/network/anilibria/service/AnilibriaService.dart';
+import 'package:test_for_max/features/home_screen/domain/models/anime_series.dart';
+import 'package:test_for_max/network/anilibria/service/anilibria_service.dart';
 
-import '../../domain/repository/AnilibriaRepository.dart';
+import '../../domain/repository/anilibria_repository.dart';
 
 class AnilibriaRepositoryImpl implements AnilibriaRepository {
   AnilibriaService anilibriaService;

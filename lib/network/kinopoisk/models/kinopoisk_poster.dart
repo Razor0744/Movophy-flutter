@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'KinopoiskPoster.g.dart';
+part 'kinopoisk_poster.g.dart';
 
 @JsonSerializable()
 class KinopoiskPoster{

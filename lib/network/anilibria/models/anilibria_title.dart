@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:test_for_max/network/anilibria/models/AnilibriaPosters.dart';
+import 'package:test_for_max/network/anilibria/models/anilibria_posters.dart';
 
-part 'AnilibriaTitle.g.dart';
+part 'anilibria_title.g.dart';
 
 @JsonSerializable()
 class AnilibriaTitle {
