@@ -18,12 +18,12 @@ class GetHomeDataUseCase {
   GetHomeDataUseCase(this.anilibriaRepository, this.kinopoiskRepository);
 
   Future<HomeState> execute() async {
-    var animeSeriesList = await anilibriaRepository.getAnimeSeriesList();
+    final animeSeriesList = await anilibriaRepository.getAnimeSeriesList();
 
-    var horrorList = await kinopoiskRepository.getKinopoiskSeriesList(HORRORS_CATEGORY);
-    var comedyList = await kinopoiskRepository.getKinopoiskSeriesList(COMEDY_CATEGORY);
-    var dramaList = await kinopoiskRepository.getKinopoiskSeriesList(DRAMA_CATEGORY);
-    var melodramaList = await kinopoiskRepository.getKinopoiskSeriesList(MELODRAMA_CATEGORY);
+    final horrorList = await kinopoiskRepository.getKinopoiskSeriesList(HORRORS_CATEGORY);
+    final comedyList = await kinopoiskRepository.getKinopoiskSeriesList(COMEDY_CATEGORY);
+    final dramaList = await kinopoiskRepository.getKinopoiskSeriesList(DRAMA_CATEGORY);
+    final melodramaList = await kinopoiskRepository.getKinopoiskSeriesList(MELODRAMA_CATEGORY);
 
     return HomeState(
         animeSeriesList: animeSeriesList,

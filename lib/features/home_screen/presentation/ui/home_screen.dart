@@ -63,9 +63,9 @@ class HomeScreenState extends State<HomeScreen> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      var category =
+                      final category =
                           state.homeState.kinopoiskCategoryList[index];
-                      var categoryList =
+                      final categoryList =
                           state.homeState.kinopoiskSeriesList[index];
 
                       return Column(
