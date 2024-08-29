@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_for_max/features/home_screen/presentation/bloc/HomeUiState.dart';
-import 'package:test_for_max/features/home_screen/presentation/bloc/HomeBloc.dart';
-import 'package:test_for_max/features/home_screen/presentation/ui/CategoryTitle.dart';
-import 'package:test_for_max/features/home_screen/presentation/ui/ScheduleText.dart';
+import 'package:test_for_max/features/home_screen/presentation/bloc/home_ui_state.dart';
+import 'package:test_for_max/features/home_screen/presentation/bloc/home_cubit.dart';
+import 'package:test_for_max/features/home_screen/presentation/ui/category_title.dart';
+import 'package:test_for_max/features/home_screen/presentation/ui/schedule_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,14 +17,14 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    context.read<HomeBloc>().getPicturesUrl();
+    context.read<HomeCubit>().getPicturesUrl();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<HomeBloc, HomeUiState>(
+      body: BlocBuilder<HomeCubit, HomeUiState>(
         builder: (context, state) {
           if (state is Loaded) {
             return SafeArea(
@@ -69,7 +69,7 @@ class HomeScreenState extends State<HomeScreen> {
                           state.homeState.kinopoiskSeriesList[index];
 
                       return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CategoryTitle(title: category),
                           SizedBox(

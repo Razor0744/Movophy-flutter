@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:test_for_max/network/anilibria/models/AnilibriaTitle.dart';
+import 'package:test_for_max/network/anilibria/models/anilibria_title.dart';
 
-part 'AnilibriaSchedule.g.dart';
+part 'anilibria_schedule.g.dart';
 
 @JsonSerializable()
 class AnilibriaSchedule {
