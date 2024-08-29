@@ -1,15 +1,17 @@
+import 'package:test_for_max/features/home_screen/domain/models/anime_series.dart';
 import 'package:test_for_max/features/home_screen/domain/models/home_state.dart';
+import 'package:test_for_max/features/home_screen/domain/models/kinopoisk_series.dart';
 import 'package:test_for_max/features/home_screen/domain/repository/anilibria_repository.dart';
 import 'package:test_for_max/features/home_screen/domain/repository/kinopoisk_repository.dart';
 
-const String HORRORS = 'Ужасы';
-const String COMEDY = 'Комедия';
-const String DRAMA = 'Драма';
-const String MELODRAMA = 'Мелодрама';
-const String HORRORS_CATEGORY = '+ужасы';
-const String COMEDY_CATEGORY = 'комедия';
-const String DRAMA_CATEGORY = 'драма';
-const String MELODRAMA_CATEGORY = '!мелодрама';
+const String horrors = 'Ужасы';
+const String comedy = 'Комедия';
+const String drama = 'Драма';
+const String melodrama = 'Мелодрама';
+const String horrorsCategory = '+ужасы';
+const String comedyCategory = 'комедия';
+const String dramaCategory = 'драма';
+const String melodramaCategory = '!мелодрама';
 
 class GetHomeDataUseCase {
   AnilibriaRepository anilibriaRepository;
@@ -18,16 +20,44 @@ class GetHomeDataUseCase {
   GetHomeDataUseCase(this.anilibriaRepository, this.kinopoiskRepository);
 
   Future<HomeState> execute() async {
-    final animeSeriesList = await anilibriaRepository.getAnimeSeriesList();
+    final animeSeriesListFuture = anilibriaRepository.getAnimeSeriesList();
 
-    final horrorList = await kinopoiskRepository.getKinopoiskSeriesList(HORRORS_CATEGORY);
-    final comedyList = await kinopoiskRepository.getKinopoiskSeriesList(COMEDY_CATEGORY);
-    final dramaList = await kinopoiskRepository.getKinopoiskSeriesList(DRAMA_CATEGORY);
-    final melodramaList = await kinopoiskRepository.getKinopoiskSeriesList(MELODRAMA_CATEGORY);
+    final horrorListFuture =
+        kinopoiskRepository.getKinopoiskSeriesList(horrorsCategory);
+    final comedyListFuture =
+        kinopoiskRepository.getKinopoiskSeriesList(comedyCategory);
+    final dramaListFuture =
+        kinopoiskRepository.getKinopoiskSeriesList(dramaCategory);
+    final melodramaListFuture =
+        kinopoiskRepository.getKinopoiskSeriesList(melodramaCategory);
+
+    final results = await Future.wait(
+      [
+        animeSeriesListFuture,
+        horrorListFuture,
+        comedyListFuture,
+        dramaListFuture,
+        melodramaListFuture
+      ],
+    );
 
     return HomeState(
-        animeSeriesList: animeSeriesList,
-        kinopoiskSeriesList: [horrorList, comedyList, dramaList, melodramaList],
-        kinopoiskCategoryList: [HORRORS, COMEDY, DRAMA, MELODRAMA]);
+      animeSeriesList: results[0] as List<AnimeSeries>,
+      kinopoiskSeriesList: [
+        results[1] as List<KinopoiskSeries>,
+        results[2] as List<KinopoiskSeries>,
+        results[3] as List<KinopoiskSeries>,
+        results[4] as List<KinopoiskSeries>
+      ],
+      kinopoiskCategoryList: [
+        horrorsCategory,
+        comedyCategory,
+        dramaCategory,
+        melodramaCategory
+      ],
+    );
   }
 }
+
+//0:00:02.015058
+// 0:00:00.910735
