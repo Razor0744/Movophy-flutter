@@ -3,6 +3,8 @@ import 'package:test_for_max/network/anilibria/service/anilibria_service.dart';
 
 import '../../domain/repository/anilibria_repository.dart';
 
+const String anilibriaImageStartUrl = 'https://www.anilibria.tv';
+
 class AnilibriaRepositoryImpl implements AnilibriaRepository {
   AnilibriaService anilibriaService;
 
@@ -15,7 +17,7 @@ class AnilibriaRepositoryImpl implements AnilibriaRepository {
     final list = response
         .map((it) => AnimeSeries(
             id: it.list?[0].id ?? 0,
-            pictureUrl: 'https://www.anilibria.tv${it.list?[0].posters?.small?.url}'))
+            pictureUrl: '$anilibriaImageStartUrl${it.list?[0].posters?.small?.url}'))
         .toList();
     return list;
   }

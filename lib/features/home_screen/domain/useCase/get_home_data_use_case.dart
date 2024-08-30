@@ -50,14 +50,11 @@ class GetHomeDataUseCase {
         results[4] as List<KinopoiskSeries>
       ],
       kinopoiskCategoryList: [
-        horrorsCategory,
-        comedyCategory,
-        dramaCategory,
-        melodramaCategory
+        horrors,
+        comedy,
+        drama,
+        melodrama
       ],
     );
   }
 }
-
-//0:00:02.015058
-// 0:00:00.910735

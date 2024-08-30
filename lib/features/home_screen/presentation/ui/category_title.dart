@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CategoryTitle extends StatelessWidget {
   const CategoryTitle({super.key, required this.title});
@@ -12,6 +13,7 @@ class CategoryTitle extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.start,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
     );
   }
