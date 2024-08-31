@@ -5,10 +5,8 @@ class HomeState {
   HomeState({
     required this.animeSeriesList,
     required this.kinopoiskSeriesList,
-    required this.kinopoiskCategoryList,
   });
 
   final List<AnimeSeries> animeSeriesList;
   final List<List<KinopoiskSeries>> kinopoiskSeriesList;
-  final List<String> kinopoiskCategoryList;
 }

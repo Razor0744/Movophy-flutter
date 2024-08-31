@@ -4,6 +4,7 @@ import 'package:test_for_max/features/home_screen/presentation/bloc/home_ui_stat
 import 'package:test_for_max/features/home_screen/presentation/bloc/home_cubit.dart';
 import 'package:test_for_max/features/home_screen/presentation/ui/category_title.dart';
 import 'package:test_for_max/features/home_screen/presentation/ui/schedule_text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,6 +28,10 @@ class HomeScreenState extends State<HomeScreen> {
       body: BlocBuilder<HomeCubit, HomeUiState>(
         builder: (context, state) {
           if (state is Loaded) {
+            final categoriesString =
+                AppLocalizations.of(context)?.kinopoiskCategories ?? '';
+            final categories = categoriesString.split(', ');
+
             return SafeArea(
               top: true,
               bottom: true,
@@ -63,10 +68,9 @@ class HomeScreenState extends State<HomeScreen> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      final category =
-                          state.homeState.kinopoiskCategoryList[index];
                       final categoryList =
                           state.homeState.kinopoiskSeriesList[index];
+                      final category = categories[index];
 
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

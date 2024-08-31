@@ -4,14 +4,10 @@ import 'package:test_for_max/features/home_screen/domain/models/kinopoisk_series
 import 'package:test_for_max/features/home_screen/domain/repository/anilibria_repository.dart';
 import 'package:test_for_max/features/home_screen/domain/repository/kinopoisk_repository.dart';
 
-const String horrors = 'Ужасы';
-const String comedy = 'Комедия';
-const String drama = 'Драма';
-const String melodrama = 'Мелодрама';
-const String horrorsCategory = '+ужасы';
-const String comedyCategory = 'комедия';
-const String dramaCategory = 'драма';
-const String melodramaCategory = '!мелодрама';
+const String horrorsCategoryApi = '+ужасы';
+const String comedyCategoryApi = 'комедия';
+const String dramaCategoryApi = 'драма';
+const String melodramaCategoryApi = '!мелодрама';
 
 class GetHomeDataUseCase {
   AnilibriaRepository anilibriaRepository;
@@ -23,13 +19,13 @@ class GetHomeDataUseCase {
     final animeSeriesListFuture = anilibriaRepository.getAnimeSeriesList();
 
     final horrorListFuture =
-        kinopoiskRepository.getKinopoiskSeriesList(horrorsCategory);
+        kinopoiskRepository.getKinopoiskSeriesList(horrorsCategoryApi);
     final comedyListFuture =
-        kinopoiskRepository.getKinopoiskSeriesList(comedyCategory);
+        kinopoiskRepository.getKinopoiskSeriesList(comedyCategoryApi);
     final dramaListFuture =
-        kinopoiskRepository.getKinopoiskSeriesList(dramaCategory);
+        kinopoiskRepository.getKinopoiskSeriesList(dramaCategoryApi);
     final melodramaListFuture =
-        kinopoiskRepository.getKinopoiskSeriesList(melodramaCategory);
+        kinopoiskRepository.getKinopoiskSeriesList(melodramaCategoryApi);
 
     final results = await Future.wait(
       [
@@ -48,12 +44,6 @@ class GetHomeDataUseCase {
         results[2] as List<KinopoiskSeries>,
         results[3] as List<KinopoiskSeries>,
         results[4] as List<KinopoiskSeries>
-      ],
-      kinopoiskCategoryList: [
-        horrors,
-        comedy,
-        drama,
-        melodrama
       ],
     );
   }

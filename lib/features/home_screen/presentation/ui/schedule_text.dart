@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+const String scheduleText = 'Waiting today';
 
 class ScheduleText extends StatelessWidget {
   const ScheduleText({super.key});
@@ -9,7 +11,7 @@ class ScheduleText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 0, 0),
       child: Text(
-        'Ожидается сегодня',
+        AppLocalizations.of(context)?.schedulesText ?? scheduleText,
         style: Theme.of(context).textTheme.titleMedium,
       ),
     );
