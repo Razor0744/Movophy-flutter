@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:test_for_max/di_setup.dart';
-import 'package:test_for_max/features/home_screen/presentation/bloc/home_cubit.dart';
-import 'package:test_for_max/features/home_screen/presentation/ui/home_screen.dart';
+import 'package:test_for_max/features/details_screen/presentation/cubit/details_cubit.dart';
+import 'package:test_for_max/features/details_screen/presentation/ui/details_screen.dart';
 
 void main() {
   diSetup();
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(getIt()),
+      create: (context) => DetailsCubit(),
       child: MaterialApp(
         title: 'Flutter Demo',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomeScreen(),
+        home: const DetailsScreen(),
       ),
     );
   }
