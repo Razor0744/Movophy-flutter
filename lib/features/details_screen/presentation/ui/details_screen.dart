@@ -35,10 +35,12 @@ class DetailsScreenState extends State<DetailsScreen> {
     return Scaffold(
       body: BlocBuilder<DetailsCubit, DetailsUiState>(
         builder: (context, state) {
-          if (state is Loaded) {
-            return LoadedState(state: state);
-          } else {
-            return const Text('error');
+          switch (state) {
+            case Loading _:
+              return const Center(child: CircularProgressIndicator());
+
+            case Loaded _:
+              return LoadedState(state: state);
           }
         },
       ),
