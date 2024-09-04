@@ -26,14 +26,9 @@ class DetailsScreenState extends State<DetailsScreen> {
       return;
     }
     id = args;
+    context.read<DetailsCubit>().getTitle(id ?? 0);
     setState(() {});
     super.didChangeDependencies();
-  }
-
-  @override
-  void initState() {
-    context.read<DetailsCubit>();
-    super.initState();
   }
 
   @override

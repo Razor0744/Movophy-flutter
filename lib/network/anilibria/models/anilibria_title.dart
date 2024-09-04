@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:test_for_max/network/anilibria/models/anilibria_names.dart';
 import 'package:test_for_max/network/anilibria/models/anilibria_posters.dart';
 
 part 'anilibria_title.g.dart';
@@ -16,7 +17,7 @@ class AnilibriaTitle {
       _$AnilibriaTitleFromJson(json);
 
   final int? id;
-  final dynamic names;
+  final AnilibriaNames? names;
   final AnilibriaPosters? posters;
   final dynamic player;
   final String? description;
