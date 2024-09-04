@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:test_for_max/features/details_screen/data/repository/api_anililbria_repositoty_impl.dart';
+import 'package:test_for_max/features/details_screen/domain/repository/api_anilibria_repository.dart';
 import 'package:test_for_max/features/details_screen/presentation/cubit/details_cubit.dart';
 import 'package:test_for_max/features/home_screen/data/repository/anilibria_repository_impl.dart';
 import 'package:test_for_max/features/home_screen/data/repository/kinopoisk_repository_impl.dart';
@@ -20,5 +22,6 @@ void diSetup(){
   getIt.registerSingleton<KinopoiskRepository>(KinopoiskRepositoryImpl(getIt()));
   getIt.registerFactory(() => HomeCubit(getIt()));
   getIt.registerFactory(() => GetHomeDataUseCase(getIt(), getIt()));
-  getIt.registerFactory(() => DetailsCubit());
+  getIt.registerFactory(() => DetailsCubit(getIt()));
+  getIt.registerSingleton<ApiAnilibriaRepository>(ApiAnilibriaRepositoryImpl(getIt()));
 }

@@ -1,9 +1,8 @@
 import 'package:test_for_max/features/home_screen/domain/models/anime_series.dart';
 import 'package:test_for_max/network/anilibria/service/anilibria_service.dart';
 
+import '../../../../common/constants/constants.dart';
 import '../../domain/repository/anilibria_repository.dart';
-
-const String anilibriaImageStartUrl = 'https://www.anilibria.tv';
 
 class AnilibriaRepositoryImpl implements AnilibriaRepository {
   AnilibriaService anilibriaService;
