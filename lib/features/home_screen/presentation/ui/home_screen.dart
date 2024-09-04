@@ -26,11 +26,13 @@ class HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: BlocBuilder<HomeCubit, HomeUiState>(
         builder: (context, state) {
-          if (state is Loaded) {
-            return LoadedState(state: state);
-          }
+          switch (state) {
+            case Loading _:
+              return const Center(child: CircularProgressIndicator());
 
-          return const Text('error');
+            case Loaded _:
+              return LoadedState(state: state);
+          }
         },
       ),
     );
