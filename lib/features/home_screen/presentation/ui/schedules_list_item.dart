@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:test_for_max/features/home_screen/domain/models/anime_series.dart';
 
 class SchedulesListItem extends StatelessWidget {
@@ -8,13 +8,18 @@ class SchedulesListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Image.network(
-        item.pictureUrl,
-        fit: BoxFit.fill,
-        width: 120,
-        height: 180,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed('/details_screen', arguments: item.id);
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.network(
+          item.pictureUrl,
+          fit: BoxFit.fill,
+          width: 120,
+          height: 180,
+        ),
       ),
     );
   }

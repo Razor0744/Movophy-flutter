@@ -14,8 +14,25 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class DetailsScreenState extends State<DetailsScreen> {
+  int? id;
+
+  @override
+  void didChangeDependencies() {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args == null) {
+      return;
+    }
+    if (args is! int) {
+      return;
+    }
+    id = args;
+    setState(() {});
+    super.didChangeDependencies();
+  }
+
   @override
   void initState() {
+    context.read<DetailsCubit>();
     super.initState();
   }
 
