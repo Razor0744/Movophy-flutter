@@ -10,22 +10,20 @@ part 'kinopoisk_service.g.dart';
 abstract class KinopoiskService {
   factory KinopoiskService(Dio dio, {String baseUrl}) = _KinopoiskService;
 
-  @Headers(<String, dynamic>{
-    'accept': 'application/json',
-    'X-API-KEY': 'B7MW9FS-1BQM1N0-H4W3YZ7-3FAEB2K'
-  })
+  @Headers(<String, dynamic>{'accept': 'application/json'})
   @GET('movie')
   Future<KinopoiskList> getList({
     @Query('page') int page = 1,
     @Query('limit') int limit = 20,
     @Query('selectFields') List<String> selectedFields = const ['id', 'poster'],
     @Query('genres.name') required String category,
+    @Header('X-API-KEY') required String apiKey,
   });
 
-  @Headers(<String, dynamic>{
-    'accept': 'application/json',
-    'X-API-KEY': 'B7MW9FS-1BQM1N0-H4W3YZ7-3FAEB2K'
-  })
+  @Headers(<String, dynamic>{'accept': 'application/json'})
   @GET('movie/{id}')
-  Future<KinopoiskTitle> getTitle({@Path('id') required int id});
+  Future<KinopoiskTitle> getTitle({
+    @Path('id') required int id,
+    @Header('X-API-KEY') required String apiKey,
+  });
 }
