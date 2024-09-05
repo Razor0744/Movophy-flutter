@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:test_for_max/common/constants/constants.dart';
 import 'package:test_for_max/features/details_screen/domain/models/details_title_model.dart';
 import 'package:test_for_max/features/details_screen/domain/repository/title_repository.dart';
@@ -9,6 +10,8 @@ class TitleRepositoryImpl implements TitleRepository {
   KinopoiskService kinopoiskService;
 
   TitleRepositoryImpl(this.anilibriaService, this.kinopoiskService);
+
+  final kinopoiskApiKey = dotenv.env['KINOPOISK_API_KEY']!;
 
   @override
   Future<DetailsTitleModel> getTitle(int id, String category) async {
@@ -22,7 +25,7 @@ class TitleRepositoryImpl implements TitleRepository {
             titleDescription: response.description ?? '');
 
       case apiCategoryKinopoisk:
-        final response = await kinopoiskService.getTitle(id: id);
+        final response = await kinopoiskService.getTitle(id: id, apiKey: kinopoiskApiKey);
 
         return DetailsTitleModel(
             imageUrl: response.poster?.previewUrl ?? '',
